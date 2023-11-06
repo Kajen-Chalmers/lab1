@@ -28,6 +28,8 @@ public class Saab95 extends Vehicle{
         return enginePower * 0.01 * turbo;
     }
 
+
+    //TODO: Override och protected är så man gör för att koppla mellan sub och superklass. Men Nicklas sa att det finns bättre lösningar än att overrida i båda bilarna.
     @Override
     protected void incrementSpeed(double amount){
         currentSpeed = getCurrentSpeed() + speedFactor() * amount;
