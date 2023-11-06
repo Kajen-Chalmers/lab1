@@ -22,23 +22,14 @@ public class Saab95 extends Vehicle{
     }
 
     
-    private double speedFactor() {
+    @Override
+    protected double speedFactor() {
         double turbo = 1;
         if (turboOn) turbo = 1.3;
         return enginePower * 0.01 * turbo;
     }
 
 
-    //TODO: Override och protected är så man gör för att koppla mellan sub och superklass. Men Nicklas sa att det finns bättre lösningar än att overrida i båda bilarna.
-    @Override
-    protected void incrementSpeed(double amount){
-        currentSpeed = getCurrentSpeed() + speedFactor() * amount;
-    }
-
-    @Override
-    protected void decrementSpeed(double amount){
-        currentSpeed = getCurrentSpeed() - speedFactor() * amount;
-    }
 
     public static void main(String[] args) {
         Saab95 mySaab = new Saab95();
@@ -46,11 +37,49 @@ public class Saab95 extends Vehicle{
         mySaab.gas(15);
         double recievedSpeed = mySaab.getCurrentSpeed();
         System.out.println(recievedSpeed);
-        mySaab.setTurboOn();
         mySaab.gas(5);
         recievedSpeed = mySaab.getCurrentSpeed();
         System.out.println(recievedSpeed);
-        mySaab.setTurboOff();
+        mySaab.moveLeft();
+
+        System.out.println(mySaab.getDirection());
     }
 
+    @Override
+    public void move() {
+
+        switch(getDirection()) {
+            case "North":
+                //+Y
+                break;
+            case "East":
+                //+X
+                break;
+            case "South":
+                //-Y
+                break;
+            case "West":
+                //-X
+                break;
+        }
+        //TODO:
+    }
+
+    @Override
+    public void moveLeft() {
+        currentDirection -= 1;
+        if (currentDirection < 0){
+            currentDirection = 3;
+        }
+
+        System.out.println(currentDirection);
+    }
+
+    @Override
+    public void moveRight() {
+        currentDirection += 1;
+        if (currentDirection > 3){
+            currentDirection = 0;
+        }
+    }
 }

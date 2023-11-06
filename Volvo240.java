@@ -2,19 +2,14 @@ import java.awt.*;
 
 public class Volvo240 extends Vehicle{
 
-    private final static double trimFactor = 1.25;
-    
     private Volvo240(){
         nrDoors = 4;
         color = Color.black;
         enginePower = 100;
         modelName = "Volvo240";
-        stopEngine();
-    }
+        trimFactor = 1.25;
 
-    
-    private double speedFactor(){
-        return enginePower * 0.01 * trimFactor;
+        stopEngine();
     }
 
     @Override
@@ -37,6 +32,22 @@ public class Volvo240 extends Vehicle{
         myVolvo.gas(5);
         recievedSpeed = myVolvo.getCurrentSpeed();
         System.out.println(recievedSpeed);
+
     }
 
+
+    @Override
+    public void move() {
+
+    }
+
+    @Override
+    public void moveLeft() {
+
+    }
+
+    @Override
+    public void moveRight() {
+
+    }
 }
