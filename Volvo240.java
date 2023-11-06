@@ -1,15 +1,10 @@
 import java.awt.*;
 
-public class Volvo240{
+public class Volvo240 extends Vehicle{
 
-    public final static double trimFactor = 1.25;
-    public int nrDoors; // Number of doors on the car
-    public double enginePower; // Engine power of the car
-    public double currentSpeed; // The current speed of the car
-    public Color color; // Color of the car
-    public String modelName; // The car model name
+    private final static double trimFactor = 1.25;
     
-    public Volvo240(){
+    private Volvo240(){
         nrDoors = 4;
         color = Color.black;
         enginePower = 100;
@@ -44,21 +39,29 @@ public class Volvo240{
 	    currentSpeed = 0;
     }
     
-    public double speedFactor(){
+    private double speedFactor(){
         return enginePower * 0.01 * trimFactor;
     }
 
-    public void incrementSpeed(double amount){
+    @Override
+    protected void incrementSpeed(double amount){
 	    currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount,enginePower);
     }
 
-    public void decrementSpeed(double amount){
+    @Override
+    protected void decrementSpeed(double amount){
         currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount,0);
     }
 
-    // TODO fix this method according to lab pm
-    public void gas(double amount){
-        incrementSpeed(amount);
+    public static void main(String[] args) {
+        Volvo240 myVolvo = new Volvo240();
+        myVolvo.startEngine();
+        myVolvo.gas(15);
+        double recievedSpeed = myVolvo.getCurrentSpeed();
+        System.out.println(recievedSpeed);
+        myVolvo.gas(5);
+        recievedSpeed = myVolvo.getCurrentSpeed();
+        System.out.println(recievedSpeed);
     }
 
     // TODO fix this method according to lab pm
