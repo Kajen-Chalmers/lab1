@@ -11,33 +11,7 @@ public class Volvo240 extends Vehicle{
         modelName = "Volvo240";
         stopEngine();
     }
-    
-    public int getNrDoors(){
-        return nrDoors;
-    }
-    public double getEnginePower(){
-        return enginePower;
-    }
 
-    public double getCurrentSpeed(){
-        return currentSpeed;
-    }
-
-    public Color getColor(){
-        return color;
-    }
-
-    public void setColor(Color clr){
-	    color = clr;
-    }
-
-    public void startEngine(){
-	    currentSpeed = 0.1;
-    }
-
-    public void stopEngine(){
-	    currentSpeed = 0;
-    }
     
     private double speedFactor(){
         return enginePower * 0.01 * trimFactor;
@@ -64,8 +38,4 @@ public class Volvo240 extends Vehicle{
         System.out.println(recievedSpeed);
     }
 
-    // TODO fix this method according to lab pm
-    public void brake(double amount){
-        decrementSpeed(amount);
-    }
 }
