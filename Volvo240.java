@@ -27,6 +27,7 @@ public class Volvo240 extends Vehicle{
         currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount,0);
     }
 
+
     public static void main(String[] args) {
         Volvo240 myVolvo = new Volvo240();
         myVolvo.startEngine();
