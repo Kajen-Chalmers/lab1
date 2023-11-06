@@ -51,6 +51,7 @@ public class Saab95 extends Vehicle{
         switch(getDirection()) {
             case "North":
                 //+Y
+                position.move(0,(int)Math.round(currentSpeed));
                 break;
             case "East":
                 //+X
