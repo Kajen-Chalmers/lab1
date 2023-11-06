@@ -29,9 +29,7 @@ public abstract class Vehicle implements Movable{
         return enginePower;
     }
 
-    public double getCurrentSpeed(){
-        return currentSpeed;
-    }
+    public double getCurrentSpeed(){ return currentSpeed; }
 
     public Color getColor(){
         return color;
@@ -41,9 +39,7 @@ public abstract class Vehicle implements Movable{
         color = clr;
     }
 
-    public void startEngine(){
-        currentSpeed = 0.1;
-    }
+    public void startEngine(){ currentSpeed = 0.1; }
 
     public void stopEngine(){
         currentSpeed = 0;
