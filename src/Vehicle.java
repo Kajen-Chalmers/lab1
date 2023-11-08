@@ -10,7 +10,7 @@ public abstract class Vehicle implements Movable{
     private double trimFactor = 1.0;
     private boolean turboOn = false;
     private Point position = new Point(0, 0);
-    private String[] directions = {"North", "East", "South", "West"};
+    private final String[] directions = {"North", "East", "South", "West"};
     private int currentDirection = 0;
     private double turbo;
 

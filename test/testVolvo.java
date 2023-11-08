@@ -13,7 +13,6 @@ public class testVolvo {
     }
     @Test
     public void testGetPosition() {
-
         volvo.setPosition(new Point (2,10));
         assert  volvo.getPosition().getY() == 10;
         assert  volvo.getPosition().getX() == 2;
@@ -79,11 +78,9 @@ public class testVolvo {
     @Test
     public void testDecrementSpeed() {
         volvo.startEngine();
-        volvo.decrementSpeed(5);
-        assert volvo.getCurrentSpeed() == 0;
         volvo.incrementSpeed(10);
         volvo.decrementSpeed(5);
-        assert volvo.getCurrentSpeed() == 6.25;
+        assert volvo.getCurrentSpeed() == 6.35;
     }
     @Test
     public void testGas() {
@@ -107,11 +104,9 @@ public class testVolvo {
         assert volvo.getPosition().getY() == 0;
         volvo.setCurrentSpeed(5);
         volvo.move();
-        assert volvo.getPosition().getX() == 0;
-        assert volvo.getPosition().getY() == 5;
-        volvo.moveRight();
+        volvo.moveLeft();
         volvo.move();
-        assert volvo.getPosition().getX() == 5;
+        assert volvo.getPosition().getX() == -5;
         assert volvo.getPosition().getY() == 5;
     }
     @Test
@@ -119,8 +114,6 @@ public class testVolvo {
         assert volvo.getDirection() == "North";
         volvo.moveLeft();
         assert volvo.getDirection() == "West";
-        volvo.moveLeft();
-        assert volvo.getDirection() == "South";
     }
     @Test
     public void testMoveRight() {

@@ -11,6 +11,13 @@ public class Volvo240 extends Vehicle{
         stopEngine();
     }
 
+    /* public static void main(String[] args) {
+        Volvo240 volvo = new Volvo240();
+        volvo.startEngine();
+        volvo.incrementSpeed(10);
+        volvo.decrementSpeed(5);
+        System.out.println(volvo.getCurrentSpeed());
+    }*/
     @Override
     protected void incrementSpeed(double amount){
 	    setCurrentSpeed(Math.min(getCurrentSpeed() + speedFactor() * amount,getEnginePower()));
@@ -22,22 +29,11 @@ public class Volvo240 extends Vehicle{
     }
 
 
-    public static void main(String[] args) {
-        Volvo240 myVolvo = new Volvo240();
-        myVolvo.startEngine();
-        System.out.println(myVolvo.speedFactor());
-        myVolvo.incrementSpeed(5);
-        System.out.println(myVolvo.getCurrentSpeed());
-        myVolvo.setCurrentSpeed(0);
-        myVolvo.incrementSpeed(10);
-        myVolvo.decrementSpeed(5);
-        System.out.println(myVolvo.getCurrentSpeed());
-        System.out.println(myVolvo.getPosition());
-        System.out.println(new Point(0, 0));
 
 
 
-    }
+
+
 
 
     @Override
@@ -46,7 +42,6 @@ public class Volvo240 extends Vehicle{
         switch(getDirection()) {
             case "North":
                 //+Y
-
                 getPosition().move((int)getPosition().getX(),   (int)getPosition().getY()+(int)Math.round(getCurrentSpeed()));
                 break;
 
