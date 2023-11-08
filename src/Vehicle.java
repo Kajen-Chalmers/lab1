@@ -83,31 +83,10 @@ public abstract class Vehicle implements Movable{
     }
 
 
-    public Point getPosition(){
-        return position;
-    }
+
 
     public String getDirection(){
         return directions[currentDirection];
-    }
-
-
-    public int getNrDoors(){
-        return nrDoors;
-    }
-
-    public double getEnginePower(){
-        return enginePower;
-    }
-
-    public double getCurrentSpeed(){ return currentSpeed; }
-
-    public Color getColor(){
-        return color;
-    }
-
-    public void setColor(Color clr){
-        color = clr;
     }
 
     public void startEngine(){ currentSpeed = 0.1; }
