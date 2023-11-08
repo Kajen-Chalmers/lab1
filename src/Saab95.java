@@ -44,6 +44,7 @@ public class Saab95 extends Vehicle{
         mySaab.moveRight();
         mySaab.moveRight();
         mySaab.move();
+        System.out.println(mySaab.getDirection());
         System.out.println(mySaab.getPosition());
     }
 
@@ -77,8 +78,6 @@ public class Saab95 extends Vehicle{
         if (getCurrentDirection() < 0){
             setCurrentDirection(3);
         }
-
-        System.out.println(getCurrentDirection());
     }
 
     @Override

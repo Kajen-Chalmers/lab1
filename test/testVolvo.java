@@ -32,27 +32,38 @@ public class testVolvo {
     }
    @Test
     public void testGetNrDoors() {
+        assert volvo.getNrDoors() == 4;
     }
     @Test
     public void testGetEnginePower() {
+        assert volvo.getEnginePower() == 100;
     }
     @Test
     public void testGetCurrentSpeed() {
     }
     @Test
     public void testGetColor() {
+        assert volvo.getColor() == Color.black;
     }
     @Test
     public void testSetColor() {
+        volvo.setColor(Color.red);
+        assert volvo.getColor() == Color.red;
     }
     @Test
     public void testStartEngine() {
+        volvo.startEngine();
+        assert volvo.getCurrentSpeed() == 0.1;
     }
     @Test
     public void testStopEngine() {
+        volvo.startEngine();
+        volvo.stopEngine();
+        assert volvo.getCurrentSpeed() == 0;
     }
     @Test
     public void testSpeedFactor() {
+        assert volvo.speedFactor() == 1.25;
     }
     @Test
     public void testIncrementSpeed() {
@@ -87,12 +98,30 @@ public class testVolvo {
     }
     @Test
     public void testMove() {
+        assert volvo.getPosition().getX() == 0;
+        assert volvo.getPosition().getY() == 0;
+        volvo.setCurrentSpeed(5);
+        volvo.move();
+        assert volvo.getPosition().getX() == 0;
+        assert volvo.getPosition().getY() == 5;
+        volvo.moveRight();
+        volvo.move();
+        assert volvo.getPosition().getX() == 5;
+        assert volvo.getPosition().getY() == 5;
     }
     @Test
     public void testMoveLeft() {
+        assert volvo.getDirection() == "North";
+        volvo.moveLeft();
+        assert volvo.getDirection() == "West";
+        volvo.moveLeft();
+        assert volvo.getDirection() == "South";
     }
     @Test
     public void testMoveRight() {
+        assert volvo.getDirection() == "North";
+        volvo.moveRight();
+        assert volvo.getDirection() == "East";
     }
 
 }

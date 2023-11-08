@@ -82,28 +82,25 @@ public abstract class Vehicle implements Movable{
         color = clr;
     }
 
-
-
-
     public String getDirection(){
         return directions[currentDirection];
     }
+
+
 
     public void startEngine(){ setCurrentSpeed(0.1); }
     public void stopEngine(){ setCurrentSpeed(0); }
 
 
     protected double speedFactor(){
-        return enginePower * 0.01 * trimFactor;
+        return getEnginePower() * 0.01 * getTrimFactor();
     }
 
     protected void incrementSpeed(double amount){
         setCurrentSpeed(getCurrentSpeed() + speedFactor() * amount);
     }
 
-    protected void decrementSpeed(double amount){
-        currentSpeed = getCurrentSpeed() - speedFactor() * amount;
-    }
+    protected void decrementSpeed(double amount){ setCurrentSpeed(getCurrentSpeed() - speedFactor() * amount);}
 
     public void gas(double amount){
         incrementSpeed(amount);

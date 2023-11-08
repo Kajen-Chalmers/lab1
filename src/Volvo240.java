@@ -8,7 +8,6 @@ public class Volvo240 extends Vehicle{
         setEnginePower(100);
         setModelName("Volvo240");
         setTrimFactor(1.25);
-
         stopEngine();
     }
 
@@ -26,14 +25,17 @@ public class Volvo240 extends Vehicle{
     public static void main(String[] args) {
         Volvo240 myVolvo = new Volvo240();
         myVolvo.startEngine();
-        myVolvo.gas(15);
-        double recievedSpeed = myVolvo.getCurrentSpeed();
-        System.out.println(recievedSpeed);
-        myVolvo.gas(5);
-        recievedSpeed = myVolvo.getCurrentSpeed();
-        System.out.println(recievedSpeed);
+        System.out.println(myVolvo.speedFactor());
+        myVolvo.incrementSpeed(5);
+        System.out.println(myVolvo.getCurrentSpeed());
+        myVolvo.setCurrentSpeed(0);
+        myVolvo.incrementSpeed(10);
+        myVolvo.decrementSpeed(5);
+        System.out.println(myVolvo.getCurrentSpeed());
+        System.out.println(myVolvo.getPosition());
+        System.out.println(new Point(0, 0));
 
-        System.out.println(myVolvo.getDirection());
+
 
     }
 
@@ -44,20 +46,23 @@ public class Volvo240 extends Vehicle{
         switch(getDirection()) {
             case "North":
                 //+Y
-                getPosition().move(0,(int)Math.round(getCurrentSpeed()));
+
+                getPosition().move((int)getPosition().getX(),   (int)getPosition().getY()+(int)Math.round(getCurrentSpeed()));
                 break;
+
             case "East":
                 //+X
                 getPosition().move((int)getPosition().getX()+(int)Math.round(getCurrentSpeed()), (int)getPosition().getY());
                 break;
+
             case "South":
                 //-Y
-                getPosition().move(0,-(int)Math.round(getCurrentSpeed()));
-
+                getPosition().move((int)getPosition().getX(),   (int)getPosition().getY()-(int)Math.round(getCurrentSpeed()));
                 break;
+
             case "West":
                 //-X
-                getPosition().move(-(int)Math.round(getCurrentSpeed()),0);
+                getPosition().move((int)getPosition().getX()-(int)Math.round(getCurrentSpeed()),(int)getPosition().getY());
                 break;
         }
     }
@@ -68,8 +73,6 @@ public class Volvo240 extends Vehicle{
         if (getCurrentDirection() < 0){
             setCurrentDirection(3);
         }
-
-        System.out.println(getCurrentDirection());
     }
 
     @Override
