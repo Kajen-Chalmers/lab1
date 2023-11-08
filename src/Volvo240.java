@@ -33,21 +33,50 @@ public class Volvo240 extends Vehicle{
         recievedSpeed = myVolvo.getCurrentSpeed();
         System.out.println(recievedSpeed);
 
+        System.out.println(myVolvo.getDirection());
+
     }
 
 
     @Override
     public void move() {
 
+        switch(getDirection()) {
+            case "North":
+                //+Y
+                getPosition().move(0,(int)Math.round(getCurrentSpeed()));
+                break;
+            case "East":
+                //+X
+                getPosition().move((int)Math.round(getCurrentSpeed()),0);
+                break;
+            case "South":
+                //-Y
+                getPosition().move(0,-(int)Math.round(getCurrentSpeed()));
+
+                break;
+            case "West":
+                //-X
+                getPosition().move(-(int)Math.round(getCurrentSpeed()),0);
+                break;
+        }
     }
 
     @Override
     public void moveLeft() {
+        setCurrentDirection(getCurrentDirection()-1);
+        if (getCurrentDirection() < 0){
+            setCurrentDirection(3);
+        }
 
+        System.out.println(getCurrentDirection());
     }
 
     @Override
     public void moveRight() {
-
+        setCurrentDirection(getCurrentDirection()+1);
+        if (getCurrentDirection() > 3){
+            setCurrentDirection(0);
+        }
     }
 }
