@@ -18,8 +18,11 @@ public class testVolvo {
         assert  volvo.getPosition().getY() == 10;
         assert  volvo.getPosition().getX() == 2;
         }
+
     @Test
     public void testGetDirection() {
+        volvo.setCurrentDirection(2);
+        assert volvo.getDirection() == "South";
     }
     @Test
     public void testGetTrimFactor(){
@@ -40,6 +43,8 @@ public class testVolvo {
     }
     @Test
     public void testGetCurrentSpeed() {
+        volvo.setCurrentSpeed(5);
+        assert volvo.getCurrentSpeed() == 5;
     }
     @Test
     public void testGetColor() {
