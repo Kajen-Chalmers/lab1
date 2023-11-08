@@ -48,7 +48,7 @@ public class Volvo240 extends Vehicle{
                 break;
             case "East":
                 //+X
-                getPosition().move((int)Math.round(getCurrentSpeed()),0);
+                getPosition().move((int)getPosition().getX()+(int)Math.round(getCurrentSpeed()), (int)getPosition().getY());
                 break;
             case "South":
                 //-Y

@@ -89,11 +89,8 @@ public abstract class Vehicle implements Movable{
         return directions[currentDirection];
     }
 
-    public void startEngine(){ currentSpeed = 0.1; }
-
-    public void stopEngine(){
-        currentSpeed = 0;
-    }
+    public void startEngine(){ setCurrentSpeed(0.1); }
+    public void stopEngine(){ setCurrentSpeed(0); }
 
 
     protected double speedFactor(){
@@ -101,7 +98,7 @@ public abstract class Vehicle implements Movable{
     }
 
     protected void incrementSpeed(double amount){
-        currentSpeed = getCurrentSpeed() + speedFactor() * amount;
+        setCurrentSpeed(getCurrentSpeed() + speedFactor() * amount);
     }
 
     protected void decrementSpeed(double amount){
