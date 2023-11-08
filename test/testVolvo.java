@@ -55,6 +55,15 @@ public class testVolvo {
         assert volvo.getColor() == Color.red;
     }
     @Test
+    public void testGetModelName(){
+        assert volvo.getModelName() == "Volvo240";
+    }
+    @Test
+    public void testSetModelName(){
+        volvo.setModelName("Volvo21");
+        assert volvo.getModelName() == "Volvo21";
+    }
+    @Test
     public void testStartEngine() {
         volvo.startEngine();
         assert volvo.getCurrentSpeed() == 0.1;

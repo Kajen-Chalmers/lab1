@@ -61,13 +61,6 @@ public abstract class Vehicle implements Movable{
         this.position = position;
     }
 
-    public String[] getDirections() {
-        return directions;
-    }
-    public void setDirections(String[] directions) {
-        this.directions = directions;
-    }
-
     public int getCurrentDirection() {
         return currentDirection;
     }

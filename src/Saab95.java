@@ -22,28 +22,9 @@ public class Saab95 extends Vehicle{
 
 
 
-    public static void main(String[] args) {
-        Saab95 mySaab = new Saab95();
-        mySaab.startEngine();
-        mySaab.gas(15);
-        double recievedSpeed = mySaab.getCurrentSpeed();
-        System.out.println(recievedSpeed);
-        mySaab.gas(5);
-        recievedSpeed = mySaab.getCurrentSpeed();
-        System.out.println(recievedSpeed);
+   // public static void main(String[] args) {
 
-
-        System.out.println(mySaab.getDirection());
-        mySaab.move();
-        mySaab.moveLeft();
-        System.out.println(mySaab.getDirection());
-        mySaab.move();
-        mySaab.moveRight();
-        mySaab.moveRight();
-        mySaab.move();
-        System.out.println(mySaab.getDirection());
-        System.out.println(mySaab.getPosition());
-    }
+ //   }
 
     @Override
     public void move() {
