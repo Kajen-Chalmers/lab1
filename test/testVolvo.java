@@ -12,18 +12,6 @@ public class testVolvo {
         volvo = new Volvo240();
     }
     @Test
-    public void testGetPosition() {
-        volvo.setPosition(new Point (2,10));
-        assert  volvo.getPosition().getY() == 10;
-        assert  volvo.getPosition().getX() == 2;
-        }
-
-    @Test
-    public void testGetDirection() {
-        volvo.setCurrentDirection(2);
-        assert volvo.getDirection() == "South";
-    }
-    @Test
     public void testGetTrimFactor(){
         assert volvo.getTrimFactor() == 1.25;
     }

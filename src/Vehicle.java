@@ -29,7 +29,7 @@ public abstract class Vehicle implements Movable{
     }
 
     public double getCurrentSpeed(){ return currentSpeed; }
-    public void setCurrentSpeed(double currentSpeed) {
+    private void setCurrentSpeed(double currentSpeed) {
         this.currentSpeed = currentSpeed;
     }
 
@@ -57,11 +57,8 @@ public abstract class Vehicle implements Movable{
     public Point getPosition(){
         return position;
     }
-    public void setPosition(Point position) {
-        this.position = position;
-    }
 
-    public int getCurrentDirection() {
+    private int getCurrentDirection() {
         return currentDirection;
     }
     public void setCurrentDirection(int currentDirection) {
@@ -100,5 +97,47 @@ public abstract class Vehicle implements Movable{
 
     public void brake(double amount){
         decrementSpeed(amount);
+    }
+
+    @Override
+    public void move() {
+
+        switch(getDirection()) {
+            case "North":
+                //+Y
+                getPosition().move((int)getPosition().getX(),   (int)getPosition().getY()+(int)Math.round(getCurrentSpeed()));
+                break;
+
+            case "East":
+                //+X
+                getPosition().move((int)getPosition().getX()+(int)Math.round(getCurrentSpeed()), (int)getPosition().getY());
+                break;
+
+            case "South":
+                //-Y
+                getPosition().move((int)getPosition().getX(),   (int)getPosition().getY()-(int)Math.round(getCurrentSpeed()));
+                break;
+
+            case "West":
+                //-X
+                getPosition().move((int)getPosition().getX()-(int)Math.round(getCurrentSpeed()),(int)getPosition().getY());
+                break;
+        }
+    }
+
+    @Override
+    public void moveLeft() {
+        setCurrentDirection(getCurrentDirection()-1);
+        if (getCurrentDirection() < 0){
+            setCurrentDirection(3);
+        }
+    }
+
+    @Override
+    public void moveRight() {
+        setCurrentDirection(getCurrentDirection()+1);
+        if (getCurrentDirection() > 3){
+            setCurrentDirection(0);
+        }
     }
 }
