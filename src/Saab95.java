@@ -2,6 +2,8 @@ import java.awt.*;
 
 public class Saab95 extends Vehicle{
 
+    private boolean turboOn;
+
     public Saab95(){
         setNrDoors(2);
         setColor(Color.red);

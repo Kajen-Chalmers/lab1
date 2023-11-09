@@ -36,12 +36,14 @@ public class testVehicle {
         vehicle.setModelName("Saab21");
         assert vehicle.getModelName() == "Saab21";
     }
+
     @Test
     public void testGetPosition() {
         vehicle.getPosition().move(2, 10);
         assert vehicle.getPosition().getY() == 10;
         assert vehicle.getPosition().getX() == 2;
     }
+
     @Test
     public void testGetDirection() {
         assert vehicle.getDirection() == "North";
