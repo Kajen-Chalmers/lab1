@@ -61,7 +61,7 @@ public abstract class Vehicle implements Movable{
     private int getCurrentDirection() {
         return currentDirection;
     }
-    public void setCurrentDirection(int currentDirection) {
+    private void setCurrentDirection(int currentDirection) {
         this.currentDirection = currentDirection;
     }
 
@@ -81,7 +81,6 @@ public abstract class Vehicle implements Movable{
     public void startEngine(){ setCurrentSpeed(0.1); }
     public void stopEngine(){ setCurrentSpeed(0); }
 
-
     protected double speedFactor(){
         return getEnginePower() * 0.01 * getTrimFactor();
     }
@@ -96,7 +95,7 @@ public abstract class Vehicle implements Movable{
     }
 
     public void brake(double amount){
-        decrementSpeed(amount);
+        if (0 <=amount & amount <= 1) {decrementSpeed(amount);}
     }
 
     @Override

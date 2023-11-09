@@ -2,8 +2,6 @@ import java.awt.*;
 
 public class Saab95 extends Vehicle{
 
-
-
     public Saab95(){
         setNrDoors(2);
         setColor(Color.red);
@@ -11,7 +9,6 @@ public class Saab95 extends Vehicle{
         setModelName("Saab95");
         stopEngine();
     }
-
 
     @Override
     protected double speedFactor() {
