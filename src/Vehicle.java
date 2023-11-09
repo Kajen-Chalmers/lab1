@@ -38,20 +38,6 @@ public abstract class Vehicle implements Movable{
         this.modelName = modelName;
     }
 
-    public double getTrimFactor() {
-        return trimFactor;
-    }
-    public void setTrimFactor(double trimFactor) {
-        this.trimFactor = trimFactor;
-    }
-
-    public boolean getTurboOn() {return turboOn;}
-    public void setTurboOn(){ this.turboOn = true; }
-    public void setTurboOff(){ this.turboOn = false; }
-
-    public double getTurbo(){return turbo;}
-    public void setTurbo(double turboMod){this.turbo = turboMod; }
-
     public Point getPosition(){
         return position;
     }
