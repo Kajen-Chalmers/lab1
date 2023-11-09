@@ -33,14 +33,5 @@ public class testSaab {
         saab.setTurboOff();
         assert !saab.getTurboOn();
     }
-    @Test
-    public void testGetTurbo(){
-        saab.setTurbo(5.0);
-        assert saab.getTurbo() == 5.0;
-    }
-    @Test
-    public void testSetTurbo(){
-        saab.setTurbo(5.2);
-        assert saab.getTurbo() == 5.2;
-    }
+
 }

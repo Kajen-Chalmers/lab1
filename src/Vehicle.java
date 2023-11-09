@@ -7,12 +7,10 @@ public abstract class Vehicle implements Movable{
     private double currentSpeed; // The current speed of the car
     private Color color; // Color of the car
     private String modelName; // The car model name
-    private double trimFactor = 1.0;
-    private boolean turboOn = false;
-    private Point position = new Point(0, 0);
+    private Point position = new Point( 0, 0);
     private final String[] directions = {"North", "East", "South", "West"};
     private int currentDirection = 0;
-    private double turbo;
+
 
     public int getNrDoors(){
         return nrDoors;
@@ -76,14 +74,10 @@ public abstract class Vehicle implements Movable{
         return directions[currentDirection];
     }
 
-
+    public abstract double speedFactor();
 
     public void startEngine(){ setCurrentSpeed(0.1); }
     public void stopEngine(){ setCurrentSpeed(0); }
-
-    protected double speedFactor(){
-        return getEnginePower() * 0.01 * getTrimFactor();
-    }
 
     private void incrementSpeed(double amount){
         setCurrentSpeed(Math.min(getCurrentSpeed() + speedFactor() * amount,getEnginePower()));}
