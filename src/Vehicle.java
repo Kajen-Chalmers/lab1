@@ -89,14 +89,13 @@ public abstract class Vehicle implements Movable{
         return getEnginePower() * 0.01 * getTrimFactor();
     }
 
-    protected void incrementSpeed(double amount){
-        setCurrentSpeed(getCurrentSpeed() + speedFactor() * amount);
-    }
+    private void incrementSpeed(double amount){
+        setCurrentSpeed(Math.min(getCurrentSpeed() + speedFactor() * amount,getEnginePower()));}
 
-    protected void decrementSpeed(double amount){ setCurrentSpeed(getCurrentSpeed() - speedFactor() * amount);}
+    private void decrementSpeed(double amount){ setCurrentSpeed(Math.max(getCurrentSpeed() - speedFactor() * amount,0));}
 
     public void gas(double amount){
-        incrementSpeed(amount);
+        if (0.0<=amount & amount<=1.0 ){incrementSpeed(amount);}
     }
 
     public void brake(double amount){
